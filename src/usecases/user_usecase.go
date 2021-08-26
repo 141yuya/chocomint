@@ -22,3 +22,8 @@ func (userUsecase *UserUsecase) GetUser(id int) (*entities.User, error) {
 	user, err := userUsecase.userRepository.FindById(id)
 	return user, err
 }
+
+func (userUsecase *UserUsecase) GetUsers() (*entities.Users, error) {
+	users, err := userUsecase.userRepository.FindAll()
+	return users, err
+}

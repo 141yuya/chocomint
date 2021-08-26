@@ -9,6 +9,10 @@ type UserRepository struct {
 	infrastructure.SqlHandler
 }
 
+func NewUserRepository(handler *infrastructure.SqlHandler) *UserRepository {
+	return &UserRepository{SqlHandler: *handler}
+}
+
 func (repo *UserRepository) Persist(u entities.User) (*entities.User, error) {
 	user := entities.User{}
 	user.FirstName = u.FirstName
@@ -29,6 +33,11 @@ func (repo *UserRepository) FindById(id int) (*entities.User, error) {
 	return &user, nil
 }
 
-func NewUserRepository(handler *infrastructure.SqlHandler) *UserRepository {
-	return &UserRepository{SqlHandler: *handler}
+func (repo *UserRepository) FindAll() (*entities.Users, error) {
+	users := entities.Users{}
+	err := repo.DB.Find(&users).Error
+	if err != nil {
+		return nil, err
+	}
+	return &users, nil
 }

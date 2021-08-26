@@ -13,7 +13,7 @@ func (r Router) Start() {
 	engine := gin.Default()
 	u := engine.Group("/users")
 	{
-		// u.GET("", ctrl.Index)
+		u.GET("", r.UserController.Index)
 		u.GET("/:id", r.UserController.Show)
 		u.POST("", r.UserController.Create)
 		// u.PUT("/:id", ctrl.Update)

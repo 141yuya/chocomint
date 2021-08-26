@@ -16,6 +16,15 @@ func NewUserController(u usecases.UserUsecase) UserController {
 	return UserController{UserUsecase: u}
 }
 
+func (userController *UserController) Index(c *gin.Context) {
+	users, err := userController.UserUsecase.GetUsers()
+	if err != nil {
+		c.JSON(500, NewError(err))
+		return
+	}
+	c.JSON(200, users)
+}
+
 func (userController *UserController) Create(c *gin.Context) {
 	u := entities.User{}
 	c.Bind(&u)
@@ -34,5 +43,5 @@ func (userController *UserController) Show(c *gin.Context) {
 		c.JSON(500, NewError(err))
 		return
 	}
-	c.JSON(201, user)
+	c.JSON(200, user)
 }
