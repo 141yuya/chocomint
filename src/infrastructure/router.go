@@ -14,7 +14,7 @@ func (r Router) Start() {
 	u := engine.Group("/users")
 	{
 		// u.GET("", ctrl.Index)
-		// u.GET("/:id", ctrl.Show)
+		u.GET("/:id", r.UserController.Show)
 		u.POST("", r.UserController.Create)
 		// u.PUT("/:id", ctrl.Update)
 		// u.DELETE("/:id", ctrl.Delete)

@@ -5,19 +5,20 @@ import (
 	"github.com/141yuya/chocomint/src/domain/repositories"
 )
 
-type UserUsecase interface {
-	Add(user entities.User) error
-}
-
-type userUsecase struct {
+type UserUsecase struct {
 	userRepository repositories.UserRepository
 }
 
 func NewUserUsecase(userRepository repositories.UserRepository) UserUsecase {
-	return &userUsecase{userRepository: userRepository}
+	return UserUsecase{userRepository: userRepository}
 }
 
-func (userUsecase *userUsecase) Add(user entities.User) (err error) {
+func (userUsecase *UserUsecase) Add(user entities.User) (err error) {
 	_, err = userUsecase.userRepository.Persist(user)
 	return err
+}
+
+func (userUsecase *UserUsecase) GetUser(id int) (*entities.User, error) {
+	user, err := userUsecase.userRepository.FindById(id)
+	return user, err
 }
