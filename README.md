@@ -14,6 +14,7 @@ docker-compose up -d
 ```
 
 # ディレクトリ構成
+```
 src
 ├── di
 │   ├── wire.go
@@ -35,6 +36,7 @@ src
 ├── main.go
 └── usecases
     └── user_usecase.go
+```
 
 # 機能一覧
 - ユーザー一覧取得API(user_controller#Index)
