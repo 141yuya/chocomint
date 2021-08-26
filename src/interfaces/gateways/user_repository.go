@@ -2,7 +2,6 @@ package gateways
 
 import (
 	"github.com/141yuya/chocomint/src/domain/entities"
-	"github.com/141yuya/chocomint/src/domain/repositories"
 	"github.com/141yuya/chocomint/src/infrastructure"
 )
 
@@ -21,6 +20,6 @@ func (repo *UserRepository) Persist(u entities.User) (*entities.User, error) {
 	return &user, nil
 }
 
-func NewUserRepository(handler *infrastructure.SqlHandler) repositories.UserRepository {
+func NewUserRepository(handler *infrastructure.SqlHandler) *UserRepository {
 	return &UserRepository{SqlHandler: *handler}
 }

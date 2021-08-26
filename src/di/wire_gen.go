@@ -6,6 +6,7 @@
 package di
 
 import (
+	"github.com/141yuya/chocomint/src/domain/repositories"
 	"github.com/141yuya/chocomint/src/infrastructure"
 	"github.com/141yuya/chocomint/src/interfaces/controllers"
 	"github.com/141yuya/chocomint/src/interfaces/gateways"
@@ -24,4 +25,4 @@ func InitUserController(handler *infrastructure.SqlHandler) controllers.UserCont
 
 // wire.go:
 
-var superSet = wire.NewSet(gateways.NewUserRepository, usecases.NewUserUsecase, controllers.NewUserController)
+var superSet = wire.NewSet(gateways.NewUserRepository, wire.Bind(new(repositories.UserRepository), new(*gateways.UserRepository)), usecases.NewUserUsecase, controllers.NewUserController)
