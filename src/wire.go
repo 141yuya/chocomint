@@ -11,7 +11,7 @@ import (
 	"github.com/google/wire"
 )
 
-func InitController() controllers.UserController {
+func InitUserController() controllers.UserController {
 	wire.Build(
 		infrastructure.NewSqlHandler,
 		gateways.NewUserRepository,

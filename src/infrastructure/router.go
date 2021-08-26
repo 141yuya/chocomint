@@ -5,22 +5,23 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var Router *gin.Engine
-
-func InitRouter(userController controllers.UserController) {
-	r := router(userController)
-	r.Run()
+type Router struct {
+	UserController controllers.UserController
 }
 
-func router(userController controllers.UserController) *gin.Engine {
-	router := gin.Default()
-	u := router.Group("/users")
+func (r Router) Start() {
+	engine := gin.Default()
+	u := engine.Group("/users")
 	{
 		// u.GET("", ctrl.Index)
 		// u.GET("/:id", ctrl.Show)
-		u.POST("", userController.Create)
+		u.POST("", r.UserController.Create)
 		// u.PUT("/:id", ctrl.Update)
 		// u.DELETE("/:id", ctrl.Delete)
 	}
-	return router
+	engine.Run()
+}
+
+func NewRouter(userController controllers.UserController) Router {
+	return Router{UserController: userController}
 }

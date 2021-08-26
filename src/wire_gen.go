@@ -14,7 +14,7 @@ import (
 
 // Injectors from wire.go:
 
-func InitController() controllers.UserController {
+func InitUserController() controllers.UserController {
 	sqlHandler := infrastructure.NewSqlHandler()
 	userRepository := gateways.NewUserRepository(sqlHandler)
 	userUsecase := usecases.NewUserUsecase(userRepository)
