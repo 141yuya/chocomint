@@ -1,8 +1,8 @@
 package usecases
 
 import (
-	"github.com/141yuya/chocomint/src/domain/entities"
-	"github.com/141yuya/chocomint/src/domain/repositories"
+	"github.com/141yuya/go-clean-architecture/src/domain/entities"
+	"github.com/141yuya/go-clean-architecture/src/domain/repositories"
 )
 
 type UserUsecase struct {

@@ -4,9 +4,37 @@ RestAPIをクリーンアーキテクチャで作成した。
 # 技術スタック
 - Go 1.17
 - クリーンアーキテクチャ
-- Gin (フレームワーク)
-- Gorm(ORマッパー)
-- google/wire(DI)
+- フレームワーク:Gin
+- ORマッパー:Gorm
+- DI:google/wire
+
+# インストール
+```
+docker-compose up -d
+```
+
+# ディレクトリ構成
+src
+├── di
+│   ├── wire.go
+│   └── wire_gen.go
+├── domain
+│   ├── entities
+│   │   └── user.go
+│   └── repositories
+│       └── user_repository.go
+├── infrastructure
+│   ├── router.go
+│   └── sqlhandler.go
+├── interfaces
+│   ├── controllers
+│   │   ├── error.go
+│   │   └── user_controller.go
+│   └── gateways
+│       └── user_repository.go
+├── main.go
+└── usecases
+    └── user_usecase.go
 
 # 機能一覧
 - ユーザー一覧取得API(user_controller#Index)
@@ -34,7 +62,6 @@ curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT
 curl -X DELETE "http://localhost:8080/users/1"
 ```
 
-# ディレクトリ構成
 
 # 未実装
 - バリデーション

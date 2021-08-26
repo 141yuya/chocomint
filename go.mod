@@ -1,4 +1,4 @@
-module github.com/141yuya/chocomint
+module github.com/141yuya/go-clean-architecture
 
 go 1.17
 

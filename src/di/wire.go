@@ -4,11 +4,11 @@
 package di
 
 import (
-	"github.com/141yuya/chocomint/src/domain/repositories"
-	"github.com/141yuya/chocomint/src/infrastructure"
-	"github.com/141yuya/chocomint/src/interfaces/controllers"
-	"github.com/141yuya/chocomint/src/interfaces/gateways"
-	"github.com/141yuya/chocomint/src/usecases"
+	"github.com/141yuya/go-clean-architecture/src/domain/repositories"
+	"github.com/141yuya/go-clean-architecture/src/infrastructure"
+	"github.com/141yuya/go-clean-architecture/src/interfaces/controllers"
+	"github.com/141yuya/go-clean-architecture/src/interfaces/gateways"
+	"github.com/141yuya/go-clean-architecture/src/usecases"
 	"github.com/google/wire"
 )
 

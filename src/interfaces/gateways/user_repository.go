@@ -1,8 +1,8 @@
 package gateways
 
 import (
-	"github.com/141yuya/chocomint/src/domain/entities"
-	"github.com/141yuya/chocomint/src/infrastructure"
+	"github.com/141yuya/go-clean-architecture/src/domain/entities"
+	"github.com/141yuya/go-clean-architecture/src/infrastructure"
 )
 
 type UserRepository struct {
