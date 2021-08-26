@@ -45,3 +45,16 @@ func (userController *UserController) Show(c *gin.Context) {
 	}
 	c.JSON(200, user)
 }
+
+func (userController *UserController) Update(c *gin.Context) {
+	id, _ := strconv.Atoi(c.Param("id"))
+	u := entities.User{}
+	c.Bind(&u)
+
+	user, err := userController.UserUsecase.Update(id, u)
+	if err != nil {
+		c.JSON(500, NewError(err))
+		return
+	}
+	c.JSON(200, user)
+}

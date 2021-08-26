@@ -6,4 +6,5 @@ type UserRepository interface {
 	Persist(entities.User) (*entities.User, error)
 	FindById(id int) (*entities.User, error)
 	FindAll() (*entities.Users, error)
+	Update(int, entities.User) (*entities.User, error)
 }

@@ -27,3 +27,8 @@ func (userUsecase *UserUsecase) GetUsers() (*entities.Users, error) {
 	users, err := userUsecase.userRepository.FindAll()
 	return users, err
 }
+
+func (userUsecase *UserUsecase) Update(id int, u entities.User) (*entities.User, error) {
+	user, err := userUsecase.userRepository.Update(id, u)
+	return user, err
+}
