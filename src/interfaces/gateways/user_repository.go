@@ -56,3 +56,11 @@ func (repo *UserRepository) Update(id int, u entities.User) (*entities.User, err
 	}
 	return &user, nil
 }
+
+func (repo *UserRepository) Delete(id int) error {
+	err := repo.DB.Delete(&entities.User{}, id).Error
+	if err != nil {
+		return err
+	}
+	return nil
+}

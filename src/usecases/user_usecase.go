@@ -32,3 +32,7 @@ func (userUsecase *UserUsecase) Update(id int, u entities.User) (*entities.User,
 	user, err := userUsecase.userRepository.Update(id, u)
 	return user, err
 }
+
+func (userUsecase *UserUsecase) Delete(id int) error {
+	return userUsecase.userRepository.Delete(id)
+}

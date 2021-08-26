@@ -58,3 +58,13 @@ func (userController *UserController) Update(c *gin.Context) {
 	}
 	c.JSON(200, user)
 }
+
+func (userController *UserController) Delete(c *gin.Context) {
+	id, _ := strconv.Atoi(c.Param("id"))
+	err := userController.UserUsecase.Delete(id)
+	if err != nil {
+		c.JSON(500, NewError(err))
+		return
+	}
+	c.JSON(200, nil)
+}

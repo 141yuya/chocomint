@@ -17,7 +17,7 @@ func (r Router) Start() {
 		u.GET("/:id", r.UserController.Show)
 		u.POST("", r.UserController.Create)
 		u.PUT("/:id", r.UserController.Update)
-		// u.DELETE("/:id", ctrl.Delete)
+		u.DELETE("/:id", r.UserController.Delete)
 	}
 	engine.Run()
 }

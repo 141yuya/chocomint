@@ -30,6 +30,9 @@ curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT
 ```
 
 - ユーザー削除API(user_controller#Delete)
+```
+curl -X DELETE "http://localhost:8080/users/1"
+```
 
 # ディレクトリ構成
 
