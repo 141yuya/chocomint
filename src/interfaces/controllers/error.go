@@ -6,8 +6,8 @@ type Error struct {
 }
 
 func NewError(message string, data interface{}) *Error {
-	H := new(Error)
-	H.Message = message
-	H.Data = data
-	return H
+	error := new(Error)
+	error.Message = message
+	error.Data = data
+	return error
 }
