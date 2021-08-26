@@ -10,6 +10,7 @@ import (
 	"github.com/141yuya/chocomint/src/interfaces/controllers"
 	"github.com/141yuya/chocomint/src/interfaces/gateways"
 	"github.com/141yuya/chocomint/src/usecases"
+	"github.com/google/wire"
 )
 
 // Injectors from wire.go:
@@ -20,3 +21,7 @@ func InitUserController(handler *infrastructure.SqlHandler) controllers.UserCont
 	userController := controllers.NewUserController(userUsecase)
 	return userController
 }
+
+// wire.go:
+
+var superSet = wire.NewSet(gateways.NewUserRepository, usecases.NewUserUsecase, controllers.NewUserController)

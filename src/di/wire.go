@@ -11,11 +11,13 @@ import (
 	"github.com/google/wire"
 )
 
+var superSet = wire.NewSet(
+	gateways.NewUserRepository,
+	usecases.NewUserUsecase,
+	controllers.NewUserController,
+)
+
 func InitUserController(handler *infrastructure.SqlHandler) controllers.UserController {
-	wire.Build(
-		gateways.NewUserRepository,
-		usecases.NewUserUsecase,
-		controllers.NewUserController,
-	)
+	wire.Build(superSet)
 	return controllers.UserController{}
 }
