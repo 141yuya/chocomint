@@ -1,7 +1,7 @@
 //go:build wireinject
 // +build wireinject
 
-package main
+package di
 
 import (
 	"github.com/141yuya/chocomint/src/infrastructure"
@@ -11,9 +11,8 @@ import (
 	"github.com/google/wire"
 )
 
-func InitUserController() controllers.UserController {
+func InitUserController(handler *infrastructure.SqlHandler) controllers.UserController {
 	wire.Build(
-		infrastructure.NewSqlHandler,
 		gateways.NewUserRepository,
 		usecases.NewUserUsecase,
 		controllers.NewUserController,

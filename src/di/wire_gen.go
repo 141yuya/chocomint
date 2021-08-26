@@ -3,7 +3,7 @@
 //go:generate go run github.com/google/wire/cmd/wire
 //+build !wireinject
 
-package main
+package di
 
 import (
 	"github.com/141yuya/chocomint/src/infrastructure"
@@ -14,9 +14,8 @@ import (
 
 // Injectors from wire.go:
 
-func InitUserController() controllers.UserController {
-	sqlHandler := infrastructure.NewSqlHandler()
-	userRepository := gateways.NewUserRepository(sqlHandler)
+func InitUserController(handler *infrastructure.SqlHandler) controllers.UserController {
+	userRepository := gateways.NewUserRepository(handler)
 	userUsecase := usecases.NewUserUsecase(userRepository)
 	userController := controllers.NewUserController(userUsecase)
 	return userController
