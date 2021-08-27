@@ -1,7 +1,7 @@
 FROM golang:1.17.0-alpine3.13 AS build
 
 WORKDIR /go/src/github.com/141yuya/go-clean-architecture
-COPY ./go.mod ./go.sum ./
+COPY ./src/go.mod ./src/go.sum ./
 RUN go mod download
 
 COPY ./src/. ./

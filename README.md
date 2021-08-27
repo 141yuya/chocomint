@@ -10,7 +10,7 @@ RestAPIをクリーンアーキテクチャで作成した。
 
 # インストール
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 # ディレクトリ構成
