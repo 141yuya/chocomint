@@ -1,8 +1,8 @@
 package usecases
 
 import (
-	"github.com/141yuya/go-clean-architecture/src/domain/entities"
-	"github.com/141yuya/go-clean-architecture/src/domain/repositories"
+	"github.com/141yuya/go-clean-architecture/domain/entities"
+	"github.com/141yuya/go-clean-architecture/domain/repositories"
 )
 
 type UserUsecase struct {

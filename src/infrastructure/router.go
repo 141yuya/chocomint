@@ -1,7 +1,7 @@
 package infrastructure
 
 import (
-	"github.com/141yuya/go-clean-architecture/src/interfaces/controllers"
+	"github.com/141yuya/go-clean-architecture/interfaces/controllers"
 	"github.com/gin-gonic/gin"
 )
 

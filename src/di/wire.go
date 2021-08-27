@@ -4,11 +4,11 @@
 package di
 
 import (
-	"github.com/141yuya/go-clean-architecture/src/domain/repositories"
-	"github.com/141yuya/go-clean-architecture/src/infrastructure"
-	"github.com/141yuya/go-clean-architecture/src/interfaces/controllers"
-	"github.com/141yuya/go-clean-architecture/src/interfaces/gateways"
-	"github.com/141yuya/go-clean-architecture/src/usecases"
+	"github.com/141yuya/go-clean-architecture/domain/repositories"
+	"github.com/141yuya/go-clean-architecture/infrastructure"
+	"github.com/141yuya/go-clean-architecture/interfaces/controllers"
+	"github.com/141yuya/go-clean-architecture/interfaces/gateways"
+	"github.com/141yuya/go-clean-architecture/usecases"
 	"github.com/google/wire"
 )
 

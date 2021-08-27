@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/141yuya/go-clean-architecture/src/di"
-	"github.com/141yuya/go-clean-architecture/src/domain/entities"
-	"github.com/141yuya/go-clean-architecture/src/infrastructure"
+	"github.com/141yuya/go-clean-architecture/di"
+	"github.com/141yuya/go-clean-architecture/domain/entities"
+	"github.com/141yuya/go-clean-architecture/infrastructure"
 )
 
 func main() {
