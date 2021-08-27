@@ -44,7 +44,7 @@ func (userController *UserController) Show(c *gin.Context) {
 		return
 	}
 	if user.ID == 0 {
-		c.JSON(404, NewError("ユーザーが見つかりませんでした。"))
+		c.JSON(404, NewError("Not Found"))
 		return
 	}
 	c.JSON(200, user)
