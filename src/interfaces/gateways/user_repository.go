@@ -13,7 +13,7 @@ func NewUserRepository(handler *infrastructure.SqlHandler) *UserRepository {
 	return &UserRepository{SqlHandler: *handler}
 }
 
-func (repo *UserRepository) Persist(u entities.User) (*entities.User, error) {
+func (repo *UserRepository) Persist(u *entities.User) (*entities.User, error) {
 	user := entities.User{}
 	user.FirstName = u.FirstName
 	user.LastName = u.LastName
@@ -42,17 +42,15 @@ func (repo *UserRepository) FindAll() (*entities.Users, error) {
 	return &users, nil
 }
 
-func (repo *UserRepository) Update(id int, u entities.User) (*entities.User, error) {
+func (repo *UserRepository) Update(id int, u *entities.User) (*entities.User, error) {
 	user := entities.User{}
-	err := repo.DB.Where("id = ?", id).Find(&user).Error
-	if err != nil {
-		return nil, err
-	}
 	user.FirstName = u.FirstName
 	user.LastName = u.LastName
-	saveErr := repo.DB.Save(&user).Error
-	if saveErr != nil {
-		return nil, saveErr
+
+	data := entities.User{}
+	err := repo.DB.Where("id = ?", id).First(&data).Updates(&user).Error
+	if err != nil {
+		return nil, err
 	}
 	return &user, nil
 }

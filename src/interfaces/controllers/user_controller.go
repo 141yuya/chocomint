@@ -28,7 +28,7 @@ func (userController *UserController) Index(c *gin.Context) {
 func (userController *UserController) Create(c *gin.Context) {
 	u := entities.User{}
 	c.Bind(&u)
-	err := userController.UserUsecase.Add(u)
+	err := userController.UserUsecase.Add(&u)
 	if err != nil {
 		c.JSON(500, NewError(err))
 		return
@@ -55,7 +55,7 @@ func (userController *UserController) Update(c *gin.Context) {
 	u := entities.User{}
 	c.Bind(&u)
 
-	user, err := userController.UserUsecase.Update(id, u)
+	user, err := userController.UserUsecase.Update(id, &u)
 	if err != nil {
 		c.JSON(500, NewError(err))
 		return

@@ -13,7 +13,7 @@ func NewUserUsecase(userRepository repositories.UserRepository) UserUsecase {
 	return UserUsecase{userRepository: userRepository}
 }
 
-func (userUsecase *UserUsecase) Add(user entities.User) (err error) {
+func (userUsecase *UserUsecase) Add(user *entities.User) (err error) {
 	_, err = userUsecase.userRepository.Persist(user)
 	return err
 }
@@ -28,7 +28,7 @@ func (userUsecase *UserUsecase) GetUsers() (*entities.Users, error) {
 	return users, err
 }
 
-func (userUsecase *UserUsecase) Update(id int, u entities.User) (*entities.User, error) {
+func (userUsecase *UserUsecase) Update(id int, u *entities.User) (*entities.User, error) {
 	user, err := userUsecase.userRepository.Update(id, u)
 	return user, err
 }
