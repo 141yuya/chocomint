@@ -40,6 +40,12 @@ src
 ```
 
 # 機能一覧
+
+- ユーザー作成API(user_controller#Create)
+```
+curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"FirstName": "Yuya", "LastName": "Ishii"}' localhost:8080/users
+```
+
 - ユーザー一覧取得API(user_controller#Index)
 ```
 curl -X GET "http://localhost:8080/users"
@@ -48,11 +54,6 @@ curl -X GET "http://localhost:8080/users"
 - ユーザー取得API(user_controller#Show)
 ```
 curl -X GET "http://localhost:8080/users/1"
-```
-
-- ユーザー作成API(user_controller#Create)
-```
-curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"FirstName": "Yuya", "LastName": "Ishii"}' localhost:8080/users
 ```
 
 - ユーザー更新API(user_controller#Update)
