@@ -8,6 +8,7 @@ RestAPIをクリーンアーキテクチャで作成した。
 - ORマッパー:Gorm
 - DI:google/wire
 - mockライブラリ:gomock
+- test:testify
 
 # インストール
 ```
@@ -25,6 +26,8 @@ src
 │   │   └── user.go
 │   └── repositories
 │       └── user_repository.go
+├── go.mod
+├── go.sum
 ├── infrastructure
 │   ├── router.go
 │   └── sqlhandler.go
@@ -33,10 +36,17 @@ src
 │   │   ├── error.go
 │   │   └── user_controller.go
 │   └── gateways
+│       ├── mock_repositories
+│       │   └── mock_user_repository.go
 │       └── user_repository.go
 ├── main.go
+├── tests
+│   └── Feature
+│       └── create_user_test.go
 └── usecases
-    └── user_usecase.go
+    ├── user_usecase.go
+    └── user_usecase_test.go
+
 ```
 
 # 機能一覧
@@ -65,7 +75,6 @@ curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT
 ```
 curl -X DELETE "http://localhost:8080/users/1"
 ```
-
 
 # 未実装
 - バリデーション

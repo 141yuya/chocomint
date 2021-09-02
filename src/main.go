@@ -10,5 +10,6 @@ func main() {
 	sqlHandler := infrastructure.NewSqlHandler()
 	sqlHandler.DB.AutoMigrate(entities.User{})
 	router := infrastructure.NewRouter(di.InitUserController(sqlHandler))
-	router.Start()
+	engine := router.SetupRouter()
+	engine.Run()
 }

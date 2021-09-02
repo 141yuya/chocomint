@@ -9,7 +9,11 @@ type Router struct {
 	UserController controllers.UserController
 }
 
-func (r Router) Start() {
+func NewRouter(userController controllers.UserController) Router {
+	return Router{UserController: userController}
+}
+
+func (r *Router) SetupRouter() *gin.Engine {
 	engine := gin.Default()
 	u := engine.Group("/users")
 	{
@@ -19,9 +23,5 @@ func (r Router) Start() {
 		u.PUT("/:id", r.UserController.Update)
 		u.DELETE("/:id", r.UserController.Delete)
 	}
-	engine.Run()
-}
-
-func NewRouter(userController controllers.UserController) Router {
-	return Router{UserController: userController}
+	return engine
 }
