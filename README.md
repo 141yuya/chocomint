@@ -53,7 +53,7 @@ src
 
 - ユーザー作成API(user_controller#Create)
 ```
-curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"FirstName": "Yuya", "LastName": "Ishii"}' localhost:8080/users
+curl -i -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"first_name": "Yuya", "last_name": "Ishii"}' localhost:8080/users
 ```
 
 - ユーザー一覧取得API(user_controller#Index)
@@ -68,7 +68,7 @@ curl -X GET "http://localhost:8080/users/1"
 
 - ユーザー更新API(user_controller#Update)
 ```
-curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"FirstName": "Yuya2", "LastName": "Ishii2"}' localhost:8080/users/1
+curl -i -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"first_name": "Yuya2", "last_name": "Ishii2"}' localhost:8080/users/1
 ```
 
 - ユーザー削除API(user_controller#Delete)

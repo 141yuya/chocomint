@@ -44,6 +44,7 @@ func (repo *UserRepository) FindAll() (*entities.Users, error) {
 
 func (repo *UserRepository) Update(id int, u *entities.User) (*entities.User, error) {
 	user := entities.User{}
+	user.ID = id
 	user.FirstName = u.FirstName
 	user.LastName = u.LastName
 
