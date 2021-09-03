@@ -18,7 +18,7 @@ func TestAdd(t *testing.T) {
 	mockUserRepository.EXPECT().Persist(expected).Return(expected, nil)
 
 	userUsecase := usecases.NewUserUsecase(mockUserRepository)
-	err := userUsecase.Add(expected)
+	_, err := userUsecase.Add(expected)
 
 	if err != nil {
 		t.Error(err)

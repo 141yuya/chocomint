@@ -13,9 +13,9 @@ func NewUserUsecase(userRepository repositories.UserRepository) UserUsecase {
 	return UserUsecase{userRepository: userRepository}
 }
 
-func (userUsecase *UserUsecase) Add(user *entities.User) (err error) {
-	_, err = userUsecase.userRepository.Persist(user)
-	return err
+func (userUsecase *UserUsecase) Add(u *entities.User) (*entities.User, error) {
+	user, err := userUsecase.userRepository.Persist(u)
+	return user, err
 }
 
 func (userUsecase *UserUsecase) GetUser(id int) (*entities.User, error) {
