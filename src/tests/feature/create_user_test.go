@@ -37,7 +37,7 @@ func TestCreateUser(t *testing.T) {
 
 	w := httptest.NewRecorder()
 	c, _ := gin.CreateTestContext(w)
-	body := bytes.NewBufferString("{\"FirstName\":\"foo\",\"LastName\":\"bar\"}")
+	body := bytes.NewBufferString("{\"first_name\":\"foo\",\"last_name\":\"bar\"}")
 	c.Request, _ = http.NewRequest("POST", "/users", body)
 	c.Request.Header.Add("Content-Type", binding.MIMEJSON)
 	engine.ServeHTTP(w, c.Request)
